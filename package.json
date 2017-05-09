@@ -1,0 +1,23 @@
+{
+  "name": "godo-cli",
+  "version": "0.0.0",
+  "description": "just another todo cli app. go do things!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "todo",
+    "cli"
+  ],
+  "author": "Julia Menchavez",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jedijulia/godo-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jedijulia/godo-cli/issues"
+  },
+  "homepage": "https://github.com/jedijulia/godo-cli#readme"
+}

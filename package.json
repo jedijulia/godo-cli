@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "just another todo cli app. go do things!",
   "main": "index.js",
+  "bin": {
+    "godo": "index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/jedijulia/godo-cli/issues"
   },
-  "homepage": "https://github.com/jedijulia/godo-cli#readme"
+  "homepage": "https://github.com/jedijulia/godo-cli#readme",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "meow": "^3.7.0"
+  }
 }

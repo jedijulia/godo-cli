@@ -4,7 +4,7 @@
   "description": "just another todo cli app. go do things!",
   "main": "index.js",
   "bin": {
-    "godo": "index.js"
+    "godo": "cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

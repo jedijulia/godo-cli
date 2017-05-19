@@ -97,4 +97,41 @@ if (!command && data.length == 0) {
             console.log('godo(s) marked as ' + command + '! 🎉');
         }
     });
+} else if (command == 'delete') {
+    if (Number.isInteger(data[0])) {
+        var index = file['godos'].findIndex(function(item) {
+            return item['id'] == data[0];
+        });
+        file['godos'].splice(index, 1);
+    } else {
+        for (var i=0; i < file['godos'].length; i++) {
+            var item = file['godos'][i];
+            for (var j=0; j < data.length; j++ ) {
+                var group = data[j];
+                if (item['groups'].includes(group)) {
+                    file['godos'].splice(i, 1);
+                    i--;
+                }
+            }
+        }
+    }
+
+    var fileString = JSON.stringify(file, null, 4);
+    fs.writeFile(fileName, fileString, function(err) {
+        if (err) {
+            console.log('unable to remove godo(s) 😮');
+        } else {
+            console.log('godo(s) removed 🔥');
+        }
+    });
+} else if (command == 'clear') {
+    file['godos'] = [];
+    var fileString = JSON.stringify(file, null, 4);
+    fs.writeFile(fileName, fileString, function(err) {
+        if (err) {
+            console.log('unable to clear godo(s) 😮');
+        } else {
+            console.log('all godos have been removed! 👏🏽');
+        }
+    });
 }

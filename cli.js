@@ -73,4 +73,28 @@ if (!command && data.length == 0) {
             console.log('added godo ' + chalk.magenta(data[0]) + ' ✨');
         }
     });
+} else if (command == 'done' || command =='undone') {
+    var done = command == 'done';
+    if (Number.isInteger(data[0])) {
+        file['godos'][data[0]]['done'] = done;
+    } else {
+        for (var i=0; i < file['godos'].length; i++) {
+            var item = file['godos'][i];
+            for (var j=0; j < data.length; j++ ) {
+                var group = data[j];
+                if (item['groups'].includes(group)) {
+                    item['done'] = done;
+                }
+            }
+        }
+    }
+
+    var fileString = JSON.stringify(file, null, 4);
+    fs.writeFile(fileName, fileString, function(err) {
+        if (err) {
+            console.log('unable to mark godo(s) as' + command + '😮');
+        } else {
+            console.log('godo(s) marked as ' + command + '! 🎉');
+        }
+    });
 }
